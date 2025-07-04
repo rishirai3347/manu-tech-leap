@@ -23,28 +23,28 @@ const HeroSection = () => {
           </div>
 
           {/* Main heading */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-8 animate-fade-in">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-[0.9] mb-8 animate-fade-in tracking-tight">
             Manufacturing
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600 font-extrabold">
               Made Simple
             </span>
           </h1>
           
-          <p className="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in">
+          <p className="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in font-light">
             Transform your operations with custom ERP, CRM, and OMS solutions. 
             Built for Indian manufacturers who demand excellence.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in">
-            <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 font-medium">
               <Link to="/demo">
                 Start Free Trial
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
             
-            <Button variant="outline" size="lg" className="px-8 py-4 text-lg rounded-xl border-2 border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-300">
+            <Button variant="outline" size="lg" className="px-8 py-4 text-lg rounded-xl border-2 border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-300 font-medium">
               <Play className="mr-2 h-5 w-5" />
               Watch Demo
             </Button>
@@ -53,16 +53,16 @@ const HeroSection = () => {
           {/* Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto animate-fade-in">
             <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-2">45%</div>
-              <div className="text-gray-600">Efficiency Boost</div>
+              <div className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">45%</div>
+              <div className="text-gray-600 font-medium text-sm">Efficiency Boost</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-2">₹2.5Cr</div>
-              <div className="text-gray-600">Average Savings</div>
+              <div className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">₹2.5Cr</div>
+              <div className="text-gray-600 font-medium text-sm">Average Savings</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-2">90 Days</div>
-              <div className="text-gray-600">To Go Live</div>
+              <div className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">90 Days</div>
+              <div className="text-gray-600 font-medium text-sm">To Go Live</div>
             </div>
           </div>
         </div>

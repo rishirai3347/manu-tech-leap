@@ -37,13 +37,13 @@ const ServicesOverview = () => {
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
             Everything You Need to
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600 font-extrabold">
               Scale Your Business
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
             Comprehensive solutions designed specifically for Indian manufacturing companies, 
             from small workshops to enterprise-scale operations.
           </p>
@@ -62,10 +62,10 @@ const ServicesOverview = () => {
                 <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
                   {service.icon}
                 </div>
-                <CardTitle className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                <CardTitle className="text-2xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors tracking-tight">
                   {service.title}
                 </CardTitle>
-                <CardDescription className="text-gray-600 text-base leading-relaxed">
+                <CardDescription className="text-gray-600 text-base leading-relaxed font-light">
                   {service.description}
                 </CardDescription>
               </CardHeader>
@@ -83,7 +83,7 @@ const ServicesOverview = () => {
                 <Button 
                   asChild 
                   variant="outline" 
-                  className="w-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-300 rounded-xl py-6"
+                  className="w-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-300 rounded-xl py-6 font-medium"
                 >
                   <Link to={service.link}>
                     Learn More
@@ -96,7 +96,7 @@ const ServicesOverview = () => {
         </div>
 
         <div className="text-center mt-16">
-          <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+          <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 font-medium">
             <Link to="/services">
               Explore All Services
               <ArrowRight className="ml-2 h-5 w-5" />
