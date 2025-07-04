@@ -9,86 +9,85 @@ const ServicesOverview = () => {
   const services = [
     {
       title: 'Custom ERP Solutions',
-      description: 'Streamline your entire manufacturing process with integrated resource planning tailored for your industry.',
+      description: 'Streamline your entire manufacturing process with integrated resource planning.',
       features: ['Production Planning', 'Inventory Management', 'Financial Integration', 'Quality Control'],
-      color: 'blue',
+      gradient: 'from-blue-500 to-blue-600',
+      icon: '⚡',
       link: '/services/erp'
     },
     {
       title: 'CRM Systems',
-      description: 'Build stronger customer relationships and boost sales with manufacturing-focused customer management.',
+      description: 'Build stronger customer relationships with manufacturing-focused CRM.',
       features: ['Lead Management', 'Order Tracking', 'Customer Analytics', 'Sales Pipeline'],
-      color: 'green',
+      gradient: 'from-green-500 to-green-600',
+      icon: '🎯',
       link: '/services/crm'
     },
     {
-      title: 'Order Management (OMS)',
-      description: 'Optimize your order-to-delivery process with intelligent order management and tracking systems.',
+      title: 'Order Management',
+      description: 'Optimize your order-to-delivery process with intelligent tracking.',
       features: ['Order Processing', 'Supply Chain', 'Delivery Tracking', 'Returns Management'],
-      color: 'purple',
+      gradient: 'from-purple-500 to-purple-600',
+      icon: '📦',
       link: '/services/oms'
     }
   ];
 
-  const getColorClasses = (color: string) => {
-    switch (color) {
-      case 'blue':
-        return 'border-blue-200 hover:border-blue-300 bg-blue-50/50';
-      case 'green':
-        return 'border-green-200 hover:border-green-300 bg-green-50/50';
-      case 'purple':
-        return 'border-purple-200 hover:border-purple-300 bg-purple-50/50';
-      default:
-        return 'border-gray-200 hover:border-gray-300 bg-gray-50/50';
-    }
-  };
-
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Comprehensive Solutions for Manufacturing Excellence
+        <div className="text-center mb-20">
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+            Everything You Need to
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600">
+              Scale Your Business
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We specialize in building custom software solutions that address the unique challenges 
-            of Indian manufacturing companies, from small workshops to large-scale operations.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Comprehensive solutions designed specifically for Indian manufacturing companies, 
+            from small workshops to enterprise-scale operations.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className={`group transition-all duration-300 hover:shadow-lg ${getColorClasses(service.color)}`}
+              className="group relative overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 rounded-2xl"
             >
-              <CardHeader>
-                <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+              {/* Gradient background */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+              
+              <CardHeader className="relative z-10 text-center pb-4">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {service.icon}
+                </div>
+                <CardTitle className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                   {service.title}
                 </CardTitle>
-                <CardDescription className="text-gray-600">
+                <CardDescription className="text-gray-600 text-base leading-relaxed">
                   {service.description}
                 </CardDescription>
               </CardHeader>
               
-              <CardContent>
-                <ul className="space-y-2 mb-6">
+              <CardContent className="relative z-10">
+                <div className="space-y-3 mb-8">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                      {feature}
-                    </li>
+                    <div key={featureIndex} className="flex items-center text-gray-700">
+                      <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-green-500 rounded-full mr-3"></div>
+                      <span className="text-sm font-medium">{feature}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
                 
                 <Button 
                   asChild 
                   variant="outline" 
-                  className="w-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all"
+                  className="w-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-300 rounded-xl py-6"
                 >
                   <Link to={service.link}>
                     Learn More
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
               </CardContent>
@@ -96,8 +95,8 @@ const ServicesOverview = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <Button asChild size="lg" className="bg-green-600 hover:bg-green-700">
+        <div className="text-center mt-16">
+          <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
             <Link to="/services">
               Explore All Services
               <ArrowRight className="ml-2 h-5 w-5" />
