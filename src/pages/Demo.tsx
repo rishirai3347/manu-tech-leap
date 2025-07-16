@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -11,9 +11,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Checkbox } from '@/components/ui/checkbox';
 import { CheckCircle, Phone, Mail, MapPin } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { sendDemoRequestEmail, initEmailJS } from '@/lib/emailService';
 
 const Demo = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -56,6 +58,11 @@ const Demo = () => {
     { id: 'consulting', label: 'Digital Transformation Consulting' }
   ];
 
+  // Initialize EmailJS when component mounts
+  useEffect(() => {
+    initEmailJS();
+  }, []);
+
   const handleSolutionChange = (solutionId: string, checked: boolean) => {
     if (checked) {
       setFormData(prev => ({
@@ -70,32 +77,53 @@ const Demo = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // In a real application, this would send data to a backend
-    console.log('Demo request submitted:', formData);
+    setIsSubmitting(true);
     
-    toast({
-      title: "Demo Request Submitted!",
-      description: "We'll contact you within 24 hours to schedule your personalized demo.",
-    });
+    try {
+      // Send email using EmailJS
+      const emailSent = await sendDemoRequestEmail(formData);
+      
+      if (emailSent) {
+        toast({
+          title: "Demo Request Submitted!",
+          description: "We'll contact you within 24 hours to schedule your personalized demo.",
+        });
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      industry: '',
-      employees: '',
-      currentSystems: '',
-      challenges: '',
-      solutions: [],
-      timeline: '',
-      budget: '',
-      message: ''
-    });
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          industry: '',
+          employees: '',
+          currentSystems: '',
+          challenges: '',
+          solutions: [],
+          timeline: '',
+          budget: '',
+          message: ''
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: "There was an issue submitting your request. Please try again or contact us directly.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Error",
+        description: "There was an issue submitting your request. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -306,8 +334,13 @@ const Demo = () => {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full bg-green-600 hover:bg-green-700">
-                    Request My Free Demo
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full bg-green-600 hover:bg-green-700"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Sending Request...' : 'Request My Free Demo'}
                   </Button>
                 </form>
               </CardContent>
@@ -327,21 +360,21 @@ const Demo = () => {
                   <Phone className="h-5 w-5 text-blue-600 mr-3" />
                   <div>
                     <p className="font-semibold">Call Us</p>
-                    <p className="text-gray-600">+91 98765 43210</p>
+                    <p className="text-gray-600">+91 9805084583</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <Mail className="h-5 w-5 text-blue-600 mr-3" />
                   <div>
                     <p className="font-semibold">Email Us</p>
-                    <p className="text-gray-600">contact@techsolutions.com</p>
+                    <p className="text-gray-600">support@veekdays.com</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="h-5 w-5 text-blue-600 mr-3" />
                   <div>
                     <p className="font-semibold">Visit Us</p>
-                    <p className="text-gray-600">Mumbai, India</p>
+                    <p className="text-gray-600">D-64, 1st Floor, C Block, Sector 10, Noida, Uttar Pradesh 201301</p>
                   </div>
                 </div>
               </CardContent>
