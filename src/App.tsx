@@ -1,4 +1,5 @@
 
+import { useGoogleAnalytics } from "./hooks/use-google-analytics";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -20,6 +21,29 @@ import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
+const AppContent = () => {
+  // Initialize Google Analytics tracking
+  useGoogleAnalytics();
+
+  return (
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/case-studies" element={<CaseStudies />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/process" element={<Process />} />
+      <Route path="/demo" element={<Demo />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/erp" element={<BlogERP />} />
+      <Route path="/blog/crm" element={<BlogCRM />} />
+      <Route path="/blog/oms" element={<BlogOMS />} />
+      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -27,21 +51,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter basename="/">
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/case-studies" element={<CaseStudies />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/process" element={<Process />} />
-          <Route path="/demo" element={<Demo />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/erp" element={<BlogERP />} />
-          <Route path="/blog/crm" element={<BlogCRM />} />
-          <Route path="/blog/oms" element={<BlogOMS />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AppContent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
