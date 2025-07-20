@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTM Test - TechSolutions</title>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TMST5FX3');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TMST5FX3"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <h1>Google Tag Manager Test</h1>
+    <p>This page is used to test GTM implementation.</p>
+    
+    <script>
+        // Test if dataLayer exists
+        console.log('DataLayer exists:', typeof window.dataLayer !== 'undefined');
+        console.log('DataLayer content:', window.dataLayer);
+        
+        // Test GTM event
+        if (typeof window.dataLayer !== 'undefined') {
+            window.dataLayer.push({
+                'event': 'gtm_test',
+                'test_message': 'GTM is working correctly'
+            });
+            console.log('GTM test event pushed to dataLayer');
+        }
+    </script>
+</body>
+</html> 
