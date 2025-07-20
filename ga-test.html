@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Analytics Test - VEEKDAYS</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5T2N6DX77H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-5T2N6DX77H');
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .success { color: green; }
+        .error { color: red; }
+        .info { color: blue; }
+    </style>
+</head>
+<body>
+    <h1>Google Analytics Test Page</h1>
+    <p>This page is testing Google Analytics tracking for VEEKDAYS (G-5T2N6DX77H)</p>
+    
+    <div class="test-section">
+        <h2>Testing Instructions:</h2>
+        <ol>
+            <li>Open this page in your browser</li>
+            <li>Open Developer Tools (F12)</li>
+            <li>Go to the Console tab</li>
+            <li>Look for any Google Analytics related messages</li>
+            <li>Check the Network tab for requests to googletagmanager.com</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>Manual Test:</h2>
+        <button onclick="testGA()">Test Google Analytics Event</button>
+        <p id="test-result"></p>
+    </div>
+
+    <div class="test-section">
+        <h2>What to Check:</h2>
+        <ul>
+            <li><strong>Console:</strong> Look for any errors related to gtag or Google Analytics</li>
+            <li><strong>Network:</strong> Check if requests to googletagmanager.com are being made</li>
+            <li><strong>Real-time Reports:</strong> Visit your Google Analytics Real-time reports to see if this page view appears</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Common Issues:</h2>
+        <ul>
+            <li><strong>Ad Blockers:</strong> Disable ad blockers and privacy extensions</li>
+            <li><strong>Browser Privacy:</strong> Test in incognito/private mode</li>
+            <li><strong>Network Issues:</strong> Check if googletagmanager.com is accessible</li>
+            <li><strong>Property Settings:</strong> Verify the GA property is properly configured</li>
+        </ul>
+    </div>
+
+    <script>
+        function testGA() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'test_event', {
+                    'event_category': 'test',
+                    'event_label': 'manual_test',
+                    'value': 1
+                });
+                document.getElementById('test-result').innerHTML = '<span class="success">✅ Event sent successfully! Check Google Analytics Real-time reports.</span>';
+            } else {
+                document.getElementById('test-result').innerHTML = '<span class="error">❌ Google Analytics not loaded. Check console for errors.</span>';
+            }
+        }
+
+        // Check if GA is loaded
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                if (typeof gtag !== 'undefined') {
+                    console.log('✅ Google Analytics loaded successfully');
+                    console.log('Measurement ID:', 'G-5T2N6DX77H');
+                } else {
+                    console.error('❌ Google Analytics failed to load');
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html> 
