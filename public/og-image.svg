@@ -20,12 +20,13 @@
   
   <!-- Main content -->
   <g transform="translate(100, 200)">
-    <!-- Logo/Icon -->
-    <rect x="0" y="0" width="80" height="80" rx="16" fill="url(#accentGradient)"/>
-    <text x="40" y="50" font-family="Inter, sans-serif" font-size="32" font-weight="700" fill="white" text-anchor="middle">TS</text>
+    <!-- Logo/Icon - Three colored dots -->
+    <circle cx="25" cy="40" r="8" fill="#2563eb"/> <!-- Blue dot -->
+    <circle cx="40" cy="40" r="8" fill="#16a34a"/> <!-- Green dot -->
+    <circle cx="55" cy="40" r="8" fill="#9333ea"/> <!-- Purple dot -->
     
     <!-- Company name -->
-    <text x="100" y="35" font-family="Inter, sans-serif" font-size="48" font-weight="800" fill="white">TechSolutions</text>
+    <text x="100" y="35" font-family="Inter, sans-serif" font-size="48" font-weight="800" fill="white">VEEKDAYS</text>
     
     <!-- Tagline -->
     <text x="100" y="70" font-family="Inter, sans-serif" font-size="24" font-weight="400" fill="#94a3b8">Custom Manufacturing Software Solutions</text>
