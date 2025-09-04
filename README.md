@@ -1,6 +1,6 @@
 
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+If you want to work locally using your own IDE, you can clone this repo and push changes. This project is built for VeekDays.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -46,12 +46,12 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/d48c52df-1a8b-43ec-b7fc-f7e3ffc7a415) and click on Share -> Publish.
+This project can be deployed using various platforms like Vercel, Netlify, or GitHub Pages.
 
-## Can I connect a custom domain to my Lovable project?
+## Can I connect a custom domain to this project?
 
-Yes, you can!
+Yes, you can! The process depends on your deployment platform:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- **Vercel**: Navigate to Project Settings > Domains and add your custom domain
+- **Netlify**: Go to Site Settings > Domain Management > Custom Domains
+- **GitHub Pages**: Add a CNAME file to your repository with your domain name
